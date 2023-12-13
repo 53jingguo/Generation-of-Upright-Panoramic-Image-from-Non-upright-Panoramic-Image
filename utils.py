@@ -16,10 +16,10 @@ cmap = plt.cm.jet
 
 
 def parse_command():
-    modality_names = ['rgb', 'rgbd', 'd']
+    modality_names = ['rgb']
 
     import argparse
-    parser = argparse.ArgumentParser(description='FCRN')
+    parser = argparse.ArgumentParser(description='adjustment')
     parser.add_argument('--decoder', default='upproj', type=str)
     parser.add_argument('--resume',
                         default='E:\\  \\first\\img_new\\upproj\\run_4\\checkpoint.pth.tar',
