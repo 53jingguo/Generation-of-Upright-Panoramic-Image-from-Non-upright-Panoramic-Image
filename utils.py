@@ -22,11 +22,11 @@ def parse_command():
     parser = argparse.ArgumentParser(description='FCRN')
     parser.add_argument('--decoder', default='upproj', type=str)
     parser.add_argument('--resume',
-                        default='E:\\liujingguo\\first\\img_new\\upproj\\run_4\\checkpoint.pth.tar',
+                        default='E:\\  \\first\\img_new\\upproj\\run_4\\checkpoint.pth.tar',
                         type=str, metavar='PATH',
                         help='path to latest checkpoint (default: ./run/run_1/checkpoint-5.pth.tar)')
     parser.add_argument('--resumetest',
-                        default='E:\\liujingguo\\img_new\\upproj\\run_4\\checkpoint.pth.tar',
+                        default='E:\\ \\img_new\\upproj\\run_4\\checkpoint.pth.tar',
                         type=str, metavar='PATH',
                         help='path to latest checkpoint (default: ./run/run_1/checkpoint-5.pth.tar)')
     parser.add_argument('-b', '--batch-size', default=8, type=int, help='mini-batch size (default: 4)')
@@ -44,14 +44,13 @@ def parse_command():
                         help='number of data loading workers (default: 10)')
 
     # add options, be check
-    parser.add_argument('--isTrain', default=True,type=bool, help='you guess')
+    parser.add_argument('--isTrain', default=True,type=bool, help='')
     parser.add_argument('--continue_train', action='store_true', help='continue training: load the latest model')
     parser.add_argument('--load_iter', type=int, default='0',
                         help='which iteration to load? if load_iter > 0, the code will load models by iter_[load_iter]; otherwise, the code will load models by [epoch]')
     parser.add_argument('--verbose', action='store_true', help='if specified, print more debugging information')
     parser.add_argument('--epoch', type=str, default='latest',
                         help='which epoch to load? set to latest to use latest cached model')
-    parser.add_argument('--batch_size', type=int, default=1, help='input batch size')
     parser.add_argument('--print_freq', type=int, default=100, help='frequency of showing training results on console')
     parser.add_argument('--save_latest_freq', type=int, default=1, help='frequency of saving the latest results')
     parser.add_argument('--save_by_iter', action='store_true', help='whether saves model by iteration')
@@ -64,7 +63,7 @@ def parse_command():
     parser.add_argument('--name', type=str, default='experiment_name',
                         help='name of the experiment. It decides where to store samples and models')
     parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
-    parser.add_argument('--lambda_L1', type=float, default=100.0, help='weight for L1 loss')
+    parser.add_argument('--lambda_L1', type=float, default=10.0, help='weight for L1 loss')
 
 
 
@@ -110,7 +109,6 @@ def createLUT():
 def checkLUT(i, j):
     return torch.from_numpy(arr_LUT[i + 90, j + 90, :]).reshape((16,32,2))
 
-# 保存检查点
 def save_checkpoint(state, epoch, output_directory):
     checkpoint_filename = os.path.join(output_directory, 'checkpoint-' + str(epoch) + '.pth.tar')
     torch.save(state, checkpoint_filename)
