@@ -8,8 +8,8 @@ pai=3.14159;
 kk=1;
 
 for rollAngP=0     %Pitch
-    for rollAngR=0%:10:180  %Roll
-        for rollAngY=0%:10:180 %Yaw 
+    for rollAngR=0  %Roll
+        for rollAngY=0 %Yaw 
             LUT=zeros(h*w,2);
             kk=1;
             for i=1:h
