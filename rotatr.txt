@@ -1,2 +1,1 @@
-def deform_input(inp, deformation):
-     return torch.nn.functional.grid_sample(inp, deformation, align_corners=True)
+
