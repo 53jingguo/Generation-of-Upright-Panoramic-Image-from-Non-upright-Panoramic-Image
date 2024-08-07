@@ -7,7 +7,7 @@ rImg=zeros(h,w,td);
 pai=3.14159;
 kk=1;
 
-for rollAngP=0     %Pitch看论文范围如何确定
+for rollAngP=0     %Pitch
     for rollAngR=0%:10:180  %Roll
         for rollAngY=0%:10:180 %Yaw 
             LUT=zeros(h*w,2);
@@ -25,7 +25,7 @@ for rollAngP=0     %Pitch看论文范围如何确定
                     Rx=[1 0 0;0 cos(roll) -sin(roll);0 sin(roll) cos(roll)];
                     Ry=[cos(pitch) 0 sin(pitch);0 1 0;-sin(pitch) 0 cos(pitch)];
                     Rz=[cos(yaw) -sin(yaw) 0;sin(yaw) cos(yaw) 0;0 0 1];
-                    R=Rx*Ry*Rz;%以前顺序乘反了
+                    R=Rx*Ry*Rz;%
                     Cor_new=R*[X Y Z]';
                     new_X=Cor_new(1);
                     new_Y=Cor_new(2);
